@@ -24,7 +24,7 @@ stages:
       inputs:
         versionSpec: 21
         jdkArchitectureOption: x64
-        jdkSourceOption: Preinstalled
+        jdkSourceOption: PreInstalled
     - task: Maven@4
       displayName: 'Build project'
       inputs:
