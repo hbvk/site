@@ -10,19 +10,23 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- bash: 'wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/java/22/latest/jdk-22_linux-x64_bin.tar.gz '
+  displayName: 'Download Java 22'
 - task: JavaToolInstaller@0
-  displayName: 'Use Java 21'
+  displayName: 'Use Java 22'
   inputs:
-    versionSpec: 21
+    versionSpec: 22
     jdkArchitectureOption: x64
-    jdkSourceOption: PreInstalled
+    jdkSourceOption: LocalDirectory
+    jdkFile: '$(build.sourcesdirectory)/jdk-22_linux-x64_bin.tar.gz'
+    jdkDestinationDirectory: '$(agent.toolsDirectory)/jdk22'
 - task: Maven@3
   displayName: 'Build project'
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.21'
+    jdkVersionOption: '1.22'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
