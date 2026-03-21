@@ -20,9 +20,9 @@ stages:
 
     steps:
     - task: JavaToolInstaller@0
-      displayName: 'Use Java 21'
+      displayName: 'Use Java 25'
       inputs:
-        versionSpec: 21
+        versionSpec: 25
         jdkArchitectureOption: x64
         jdkSourceOption: Preinstalled
     - task: Maven@4
@@ -31,7 +31,7 @@ stages:
         mavenPomFile: 'pom.xml'
         mavenOptions: '-Xmx3072m'
         javaHomeOption: 'JDKVersion'
-        jdkVersionOption: '1.21'
+        jdkVersionOption: '1.25'
         jdkArchitectureOption: 'x64'
         publishJUnitResults: true
         testResultsFiles: '**/surefire-reports/TEST-*.xml'

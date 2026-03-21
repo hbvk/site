@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.0</version>
+		<version>4.0.4</version>
 		<relativePath/>
 	</parent>
 	<groupId>com.hbvk</groupId>
@@ -15,7 +15,7 @@
 	<description>website</description>
 
 	<properties>
-		<java.version>21</java.version>
+		<java.version>25</java.version>
 	</properties>
 
 	<dependencies>
